@@ -33,6 +33,8 @@ targets:
           - UIInterfaceOrientationPortrait
         # Standard HTTPS only: skips the per-build "Missing Compliance" question.
         ITSAppUsesNonExemptEncryption: false
+        NSMicrophoneUsageDescription: Noise Diary records a short clip of the noise when you tap Record, so your diary has evidence. Clips stay on your iPhone.
+        NSFaceIDUsageDescription: Noise Diary can use Face ID to keep your diary private.
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: net.leatham.noisediary
