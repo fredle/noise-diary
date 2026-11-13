@@ -31,6 +31,8 @@ targets:
         UILaunchScreen: {}
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait
+        # Opts out of iPad multitasking, so a portrait-only list is accepted.
+        UIRequiresFullScreen: true
         # Standard HTTPS only: skips the per-build "Missing Compliance" question.
         ITSAppUsesNonExemptEncryption: false
         NSMicrophoneUsageDescription: Noise Diary records a short clip of the noise when you tap Record, so your diary has evidence. Clips stay on your iPhone.
@@ -38,6 +40,10 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: net.leatham.noisediary
+        # Repeats the project-level "1": XcodeGen's iOS preset sets "1,2" at
+        # target level, which overrides the project setting and makes a
+        # portrait-only universal build that App Store Connect rejects (90474).
+        TARGETED_DEVICE_FAMILY: "1"
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         SUPPORTS_MACCATALYST: NO
         SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
